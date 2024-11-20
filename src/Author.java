@@ -25,4 +25,21 @@ public class Author {
         return nameAuthor + " " + surnameAuthor;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+
+            return true;
+        }
+        if (!(o instanceof Author author)) {
+
+            return false;
+        }
+        return Objects.equals(nameAuthor, author.nameAuthor) && Objects.equals(surnameAuthor, author.surnameAuthor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameAuthor, surnameAuthor);
+    }
 }

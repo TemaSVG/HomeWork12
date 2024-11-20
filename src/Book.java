@@ -32,6 +32,23 @@ public class Book {
         return String.format("Книга %s, автор %s, год публикации %s.", publisher, author.toString(), publishingYear);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+
+            return true;
+        }
+        if (!(o instanceof Book book)) {
+
+            return false;
+        }
+        return publishingYear == book.publishingYear && Objects.equals(publisher, book.publisher) && Objects.equals(author, book.author);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(publisher, publishingYear, author);
+    }
 }
 
 
